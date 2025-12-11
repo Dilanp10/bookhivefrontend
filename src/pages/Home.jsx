@@ -35,7 +35,7 @@ function Home() {
     const parsedProfile = JSON.parse(storedProfile);
 
     // Obtener rol real del usuario
-    axios.get("https://backend-bookhive.onrender.com/api/auth/me", {
+    axios.get("https://backend-bookhive-1.onrender.com/api/auth/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {
@@ -89,7 +89,7 @@ function Home() {
         toast.error("Debes iniciar sesión para ver tus libros locales");
         return;
       }
-      const response = await axios.get("https://backend-bookhive.onrender.com/api/manual-books", {
+      const response = await axios.get("https://backend-bookhive-1.onrender.com/api/manual-books", {
         params: { ageGroup },
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -165,7 +165,7 @@ function Home() {
       console.log('📤 Enviando a /api/favorites:', payload);
 
       const res = await axios.post(
-        "https://backend-bookhive.onrender.com/api/favorites",
+        "https://backend-bookhive-1.onrender.com/api/favorites",
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -191,7 +191,7 @@ function Home() {
 
     try {
       const response = await axios.post(
-        "https://backend-bookhive.onrender.com/api/favorites",
+        "https://backend-bookhive-1.onrender.com/api/favorites",
         {
           profileId: profile._id,
           source: "manual",
@@ -234,7 +234,7 @@ function Home() {
         toast.error("Debes iniciar sesión para eliminar libros");
         return;
       }
-      await axios.delete(`https://backend-bookhive.onrender.com/api/manual-books/${bookId}`, {
+      await axios.delete(`https://backend-bookhive-1.onrender.com/api/manual-books/${bookId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Libro local eliminado correctamente");

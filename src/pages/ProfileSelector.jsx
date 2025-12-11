@@ -18,7 +18,7 @@ function ProfileSelector() {
     try {
       setIsLoading(true);
       const token = localStorage.getItem("token");
-      const res = await axios.get("https://backend-bookhive.onrender.com/api/profiles", {
+      const res = await axios.get("https://backend-bookhive-1.onrender.com/api/profiles", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfiles(res.data);
@@ -51,7 +51,7 @@ function ProfileSelector() {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "https://backend-bookhive.onrender.com/api/profiles",
+        "https://backend-bookhive-1.onrender.com/api/profiles",
         { ...formData, age: Number(formData.age) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -69,7 +69,7 @@ function ProfileSelector() {
   const handleDeleteProfile = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://backend-bookhive.onrender.com/api/profiles/${id}`, {
+      await axios.delete(`https://backend-bookhive-1.onrender.com/api/profiles/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfiles(profiles.filter((p) => p._id !== id));

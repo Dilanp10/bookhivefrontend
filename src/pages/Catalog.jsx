@@ -15,7 +15,7 @@ export default function Catalogo() {
 
   const fetchLibros = async () => {
     try {
-      const res = await axios.get("https://backend-bookhive.onrender.com/api/libros", {
+      const res = await axios.get("https://backend-bookhive-1.onrender.com/api/libros", {
         headers: { Authorization: `Bearer ${token}` },
         params: {
           genero,
